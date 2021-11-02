@@ -18,16 +18,38 @@ const Form = () => {
             ...task,
             [e.target.name]: e.target.value
         })
+
     }
     //After submitting we will add the task object
     const submitTask = (e) =>{
         e.preventDefault()
         console.log("Submitting Task!")
         setListOfTasks([...listOfTasks, task])
+
+        setTask({
+            name:"",
+            isComplete: false
+        })
+
+
     }
 
-    const completeTask =(e, idx)=>{
-        console.log("Done with said tasks")
+    //COMPLETE A TASK
+    const completeTask = (e, idx) => {
+        console.log("done with the task at", idx )
+        //updating the clicked object
+
+        let [...updatedTasks] = listOfTasks
+        updatedTasks[idx].isComplete = !updatedTasks[idx].isComplete
+        setListOfTasks(updatedTasks)
+    }
+
+    //Delete A task
+    const deleteTask = (e, idx) =>{
+        let newList = listOfTasks.filter((task,i)=>{
+            return i != idx})
+            //update my state variable
+        setListOfTasks(newList)
     }
     
     return (
@@ -47,7 +69,8 @@ const Form = () => {
             listOfTasks.map((taskObj, i)=> {
                 return(
                     <div key={i}>
-                        <h3>{taskObj.name}</h3>
+                        <h3 style={{textDecoration: taskObj.isComplete? "line-through": "none"}}>{taskObj.name}<input onClick={(e)=>completeTask(e, i)} type="checkbox"/></h3>
+                        <button onClick={e=>deleteTask(e, i)}>Delete</button>
                     </div>
                 )
             })
