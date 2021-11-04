@@ -7,7 +7,7 @@ const Response = (props) => {
     console.log(id + bgColor + textColor);
     return (
         <div>
-            <h1 style={{backgroundColor: bgColor}}></h1>
+            <h1 style={{backgroundColor: bgColor, color:textColor}}>Hello</h1>
         </div>
     );
 };
