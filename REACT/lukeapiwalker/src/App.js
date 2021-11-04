@@ -1,15 +1,27 @@
-import React from "react";
+import './App.css';
+import Search from './components/Search';
+import Info from './components/Info';
 import {
   BrowserRouter,
-  Link 
+  Switch,
+  Route,
 } from "react-router-dom";
-import Search from './components/Search'
 
-    
 function App() {
   return (
-    <Search></Search>
+    <BrowserRouter>
+    <div className="App container">
+      <h1>Luke Api Walker</h1>
+      <Search></Search>
+      <Switch>
+        <Route path = "/:category/:id">
+            <Info></Info>
+        </Route>
+
+      </Switch>
+    </div>
+    </BrowserRouter>
   );
 }
-    
+
 export default App;
