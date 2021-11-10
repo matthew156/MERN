@@ -6,17 +6,21 @@ import {
 } from "react-router-dom";
 import Main from './views/Main';
 import Detail from './views/Detail';
+import Update from './views/update';
     
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Routh path="/product/">
+        <Route path="/product/">
           <Main />
         </Route>
-        <Routh path="product/:id">
+        <Route path="product/:id">
           <Detail />
         </Route>
+<Route path="/product/:id:edit">
+    <Update/>
+</Route>
       </div>
     </BrowserRouter>
   );
