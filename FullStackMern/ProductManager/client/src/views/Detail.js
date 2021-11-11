@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useParams } from "react-router-dom";
-    
+import { useParams, Link } from "react-router-dom";
+import ProductList from '../components/ProductList';
 const Detail = (props) => {
-    const [product, setProduct] = useState({})
+    const [product, setProduct] = useState({ProductList})
     const { id } = useParams();
     
     useEffect(() => {

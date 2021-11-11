@@ -1,26 +1,23 @@
 import React from 'react';
 import {
   BrowserRouter,
-  Switch,
-  Route
+  Route,
+  Routes
 } from "react-router-dom";
 import Main from './views/Main';
 import Detail from './views/Detail';
-import Update from './views/update';
+import Update from './views/Update';
     
 function App() {
   return (
+
     <BrowserRouter>
       <div className="App">
-        <Route path="/product/">
-          <Main />
-        </Route>
-        <Route path="product/:id">
-          <Detail />
-        </Route>
-<Route path="/product/:id:edit">
-    <Update/>
-</Route>
+        <Routes>
+        <Route path="/product" element={<Main />}/>
+        <Route path="/:id" element={<Detail />}/>
+        <Route path="/product/:id/edit" element={<Update/>}/>
+        </Routes>
       </div>
     </BrowserRouter>
   );

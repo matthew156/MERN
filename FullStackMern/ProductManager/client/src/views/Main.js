@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ProductForm from '../components/ProductForm';
 import ProductList from '../components/ProductList';
-    
+import axios from 'axios';    
 const Main = (props) => {
     const [product, setProduct] = useState([]);
     const [loaded, setLoaded] = useState(false);
@@ -16,7 +16,7 @@ const Main = (props) => {
     },[]);
     
     const removeFromDom = productId => {
-        setPeople(people.filter(product => product._id != productId));
+        setProduct(product.filter(product => product._id != productId));
     }
 
     return (

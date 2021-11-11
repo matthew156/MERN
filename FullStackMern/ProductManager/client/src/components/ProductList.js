@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const ProductList = (props) => {
     const { removeFromDom } = props;
     
-    const deletePerson = (productId) => {
+    const deleteProduct = (productId) => {
         axios.delete('http://localhost:8000/api/product/' + productId)
             .then(res => {
                 removeFromDom(productId)
@@ -15,13 +15,13 @@ const ProductList = (props) => {
     
     return (
         <div>
-            {props.people.map((product, idx) => {
+            {props.product.map((product, idx) => {
                 return <p key={idx}>
                     <Link to={"/" + product._id}>
                         {product.title}
                     </Link>
                     |
-                    <button onClick={(e)=>{deletePerson(person._id)}}>
+                    <button onClick={(e)=>{deleteProduct(product._id)}}>
                         Delete
                     </button>
                 </p>
